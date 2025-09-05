@@ -10,12 +10,15 @@ public class VentanaSaludo {
     }
 
     public static void VentanaSaludo(){
+
+        //Crea la ventana
         JFrame ventana = new JFrame("App␣de␣Saludo␣ICC490");
         ventana.setSize(400, 300);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLayout(null);
         ventana.getContentPane().setBackground(Color.cyan);
 
+        //Se agregan y configuran los componentes a la ventana
         JTextField campoTexto = new JTextField();
         campoTexto.setBounds(50, 30, 200, 25);
 
@@ -28,6 +31,7 @@ public class VentanaSaludo {
         JLabel etiquetaSaludo = new JLabel("");
         etiquetaSaludo.setBounds(50, 80, 300, 25);
 
+        //Verificacion para que exista algo en el campo antes de saludar
         botonSaludar.addActionListener(e-> {
             String nombre = campoTexto.getText();
             if (nombre.trim().isEmpty()) {
@@ -36,6 +40,8 @@ public class VentanaSaludo {
             { etiquetaSaludo.setText("Hola:" + nombre); }
         });
 
+
+        // Habilita usar la tecla Enter para saludar
         campoTexto.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
